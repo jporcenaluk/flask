@@ -12,6 +12,9 @@ def index():
     app.logger.info("Doing logs, everyone loves it")
     logging.info("built in logs, bro")
     print("Printing? PRintintg when it shuts down")
+    print("sriously not working")
+    logging.error("Errors are logged maybe")
+    app.logger.error("app logger errors maybe logged")
     request_ip = request.remote_addr
     if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
         request_ip = request.environ['REMOTE_ADDR']
