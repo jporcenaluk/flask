@@ -9,7 +9,6 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     app.logger.error("We were sent a request")
-    app.logger.error("Request body", f"{request.__dict__}")
     request_ip = request.remote_addr
     if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
         request_ip = request.environ['REMOTE_ADDR']
