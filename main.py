@@ -8,6 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     
+    app.logger.info("Doing logs, everyone loves it")
     
     request_ip = request.remote_addr
     if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
