@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 import os
 from flask import request
+import logging
 
 app = Flask(__name__)
 
@@ -9,7 +10,7 @@ app = Flask(__name__)
 def index():
     
     app.logger.info("Doing logs, everyone loves it")
-    
+    logging.info("built in logs, bro")
     request_ip = request.remote_addr
     if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
         request_ip = request.environ['REMOTE_ADDR']
