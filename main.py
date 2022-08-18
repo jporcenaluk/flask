@@ -1,12 +1,15 @@
 from flask import Flask, jsonify
 import os
+from flask import request
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    return jsonify({"Choo Choo": "Welcome to your Flask app 🚅"})
+    
+    print(request.remote_addr)
+    return jsonify({"IP Address": f"{request.remote_addr}"})
 
 
 if __name__ == '__main__':
