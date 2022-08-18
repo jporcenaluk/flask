@@ -15,7 +15,7 @@ def index():
     else:
         request_ip = request.environ['HTTP_X_FORWARDED_FOR'] # if behind a proxy
 
-    app.logger.error("Request IP", request_ip)
+    app.logger.error(f"{request_ip}")
     return jsonify({"IP Address": f"{request_ip}"})
 
 if __name__ == '__main__':
