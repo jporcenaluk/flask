@@ -6,7 +6,7 @@ import logging
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods = ['GET', 'POST'])
 def index():
     app.logger.error("We were sent a request")
     request_ip = request.remote_addr
