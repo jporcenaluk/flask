@@ -9,7 +9,12 @@ app = Flask(__name__)
 def index():
     
     print(request.remote_addr)
-    return jsonify({"IP Address": f"{request.remote_addr}"})
+    request_ip = request.remote_addr
+    if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
+        request_ip = request.environ['REMOTE_ADDR']
+    else:
+        request_ip = request.environ['HTTP_X_FORWARDED_FOR'] # if behind a proxy
+    return jsonify({"IP Address": f"{request_ip}"})
 
 
 if __name__ == '__main__':
